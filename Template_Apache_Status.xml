@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export version="1.0" date="14.09.11" time="16.07">
+  <hosts>
+    <host name="Template_Apache_Status">
+      <name>Template_Apache_Status</name>
+      <proxy_hostid>0</proxy_hostid>
+      <useip></useip>
+      <dns></dns>
+      <ip></ip>
+      <port></port>
+      <status>3</status>
+      <useipmi></useipmi>
+      <ipmi_ip></ipmi_ip>
+      <ipmi_port></ipmi_port>
+      <ipmi_authtype>0</ipmi_authtype>
+      <ipmi_privilege>2</ipmi_privilege>
+      <ipmi_username></ipmi_username>
+      <ipmi_password></ipmi_password>
+      <groups>
+        <group>Templates</group>
+        <group>Web Server</group>
+      </groups>
+      <triggers/>
+      <items/>
+      <templates/>
+      <screens/>
+      <graphs/>
+      <macros/>
+    </host>
+  </hosts>
+  <dependencies/>
+</zabbix_export>

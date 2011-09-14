@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export version="1.0" date="14.09.11" time="16.09">
+  <hosts>
+    <host name="Template_Tomcat6">
+      <name>Template_Tomcat6</name>
+      <proxy_hostid>0</proxy_hostid>
+      <useip></useip>
+      <dns></dns>
+      <ip></ip>
+      <port></port>
+      <status>3</status>
+      <useipmi></useipmi>
+      <ipmi_ip></ipmi_ip>
+      <ipmi_port></ipmi_port>
+      <ipmi_authtype>0</ipmi_authtype>
+      <ipmi_privilege>2</ipmi_privilege>
+      <ipmi_username></ipmi_username>
+      <ipmi_password></ipmi_password>
+      <groups>
+        <group>Templates</group>
+      </groups>
+      <triggers>
+        <trigger>
+          <description>gzip compression is off for connector http-8443 on {HOSTNAME}</description>
+          <type>0</type>
+          <expression>{Template_Tomcat6:jmx[Catalina:type=ProtocolHandler,port=8443][compression].str(off)}=1</expression>
+          <url></url>
+          <status>0</status>
+          <priority>2</priority>
+          <comments></comments>
+        </trigger>
+        <trigger>
+          <description>70% http-8443 worker threads busy on {HOSTNAME}</description>
+          <type>0</type>
+          <expression>{Template_Tomcat6:jmx[Catalina:type=ThreadPool,name=http-8443][currentThreadsBusy].last(0)}&gt;({Template_Tomcat6:jmx[Catalina:type=ThreadPool,name=http-8443][maxThreads].last(0)}*0.7)</expression>
+          <url></url>
+          <status>0</status>
+          <priority>4</priority>
+          <comments></comments>
+        </trigger>
+        <trigger>
+          <description>70% http-8080 worker threads busy on {HOSTNAME}</description>
+          <type>0</type>
+          <expression>{Template_Tomcat6:jmx["Catalina:type=ThreadPool,name=http-8080","currentThreadsBusy"].last(0)}&gt;({Template_Tomcat6:jmx["Catalina:type=ThreadPool,name=http-8080","maxThreads"].last(0)}*0.7)</expression>
+          <url></url>
+          <status>0</status>
+          <priority>4</priority>
+          <comments></comments>
+        </trigger>
+        <trigger>
+          <description>gzip compression is off for connector http-8080 on {HOSTNAME}</description>
+          <type>0</type>
+          <expression>{Template_Tomcat6:jmx["Catalina:type=ProtocolHandler,port=8080","compression"].str(off)}=1</expression>
+          <url></url>
+          <status>0</status>
+          <priority>2</priority>
+          <comments></comments>
+        </trigger>
+        <trigger>
+          <description>70% jk-8009 worker threads busy on {HOSTNAME}</description>
+          <type>0</type>
+          <expression>{Template_Tomcat6:jmx["Catalina:type=ThreadPool,name=jk-8009","currentThreadsBusy"].last(0)}&gt;({Template_Tomcat6:jmx["Catalina:type=ThreadPool,name=jk-8009","maxThreads"].last(0)}*0.7)</expression>
+          <url></url>
+          <status>0</status>
+          <priority>4</priority>
+          <comments></comments>
+        </trigger>
+      </triggers>
+      <items/>
+      <templates/>
+      <screens/>
+      <graphs>
+        <graph name="sessions /" width="900" height="200">
+          <ymin_type>0</ymin_type>
+          <ymax_type>0</ymax_type>
+          <ymin_item_key></ymin_item_key>
+          <ymax_item_key></ymax_item_key>
+          <show_work_period>1</show_work_period>
+          <show_triggers>1</show_triggers>
+          <graphtype>0</graphtype>
+          <yaxismin>0.0000</yaxismin>
+          <yaxismax>100.0000</yaxismax>
+          <show_legend>1</show_legend>
+          <show_3d>0</show_3d>
+          <percent_left>0.0000</percent_left>
+          <percent_right>0.0000</percent_right>
+          <graph_elements>
+            <graph_element item="Template_Tomcat6:jmx[&quot;Catalina:type=Manager,path=/,host=localhost&quot;,&quot;activeSessions&quot;]">
+              <drawtype>0</drawtype>
+              <sortorder>0</sortorder>
+              <color>009900</color>
+              <yaxisside>1</yaxisside>
+              <calc_fnc>2</calc_fnc>
+              <type>0</type>
+              <periods_cnt>5</periods_cnt>
+            </graph_element>
+            <graph_element item="Template_Tomcat6:jmx[&quot;Catalina:type=Manager,path=/,host=localhost&quot;,&quot;maxActiveSessions&quot;]">
+              <drawtype>0</drawtype>
+              <sortorder>0</sortorder>
+              <color>000099</color>
+              <yaxisside>1</yaxisside>
+              <calc_fnc>2</calc_fnc>
+              <type>0</type>
+              <periods_cnt>5</periods_cnt>
+            </graph_element>
+            <graph_element item="Template_Tomcat6:jmx[&quot;Catalina:type=Manager,path=/,host=localhost&quot;,&quot;rejectedSessions&quot;]">
+              <drawtype>0</drawtype>
+              <sortorder>0</sortorder>
+              <color>990000</color>
+              <yaxisside>1</yaxisside>
+              <calc_fnc>2</calc_fnc>
+              <type>0</type>
+              <periods_cnt>5</periods_cnt>
+            </graph_element>
+          </graph_elements>
+        </graph>
+        <graph name="http-8080 worker threads" width="900" height="200">
+          <ymin_type>0</ymin_type>
+          <ymax_type>0</ymax_type>
+          <ymin_item_key></ymin_item_key>
+          <ymax_item_key></ymax_item_key>
+          <show_work_period>1</show_work_period>
+          <show_triggers>1</show_triggers>
+          <graphtype>0</graphtype>
+          <yaxismin>0.0000</yaxismin>
+          <yaxismax>100.0000</yaxismax>
+          <show_legend>1</show_legend>
+          <show_3d>0</show_3d>
+          <percent_left>0.0000</percent_left>
+          <percent_right>0.0000</percent_right>
+          <graph_elements>
+            <graph_element item="Template_Tomcat6:jmx[&quot;Catalina:type=ThreadPool,name=http-8080&quot;,&quot;currentThreadCount&quot;]">
+              <drawtype>0</drawtype>
+              <sortorder>0</sortorder>
+              <color>000099</color>
+              <yaxisside>1</yaxisside>
+              <calc_fnc>2</calc_fnc>
+              <type>0</type>
+              <periods_cnt>5</periods_cnt>
+            </graph_element>
+            <graph_element item="Template_Tomcat6:jmx[&quot;Catalina:type=ThreadPool,name=http-8080&quot;,&quot;currentThreadsBusy&quot;]">
+              <drawtype>0</drawtype>
+              <sortorder>0</sortorder>
+              <color>009900</color>
+              <yaxisside>1</yaxisside>
+              <calc_fnc>2</calc_fnc>
+              <type>0</type>
+              <periods_cnt>5</periods_cnt>
+            </graph_element>
+            <graph_element item="Template_Tomcat6:jmx[&quot;Catalina:type=ThreadPool,name=http-8080&quot;,&quot;maxThreads&quot;]">
+              <drawtype>0</drawtype>
+              <sortorder>0</sortorder>
+              <color>990000</color>
+              <yaxisside>1</yaxisside>
+              <calc_fnc>2</calc_fnc>
+              <type>0</type>
+              <periods_cnt>5</periods_cnt>
+            </graph_element>
+          </graph_elements>
+        </graph>
+        <graph name="http-8443 worker threads" width="900" height="200">
+          <ymin_type>0</ymin_type>
+          <ymax_type>0</ymax_type>
+          <ymin_item_key></ymin_item_key>
+          <ymax_item_key></ymax_item_key>
+          <show_work_period>1</show_work_period>
+          <show_triggers>1</show_triggers>
+          <graphtype>0</graphtype>
+          <yaxismin>0.0000</yaxismin>
+          <yaxismax>100.0000</yaxismax>
+          <show_legend>1</show_legend>
+          <show_3d>0</show_3d>
+          <percent_left>0.0000</percent_left>
+          <percent_right>0.0000</percent_right>
+          <graph_elements>
+            <graph_element item="Template_Tomcat6:jmx[Catalina:type=ThreadPool,name=http-8443][currentThreadCount]">
+              <drawtype>0</drawtype>
+              <sortorder>0</sortorder>
+              <color>000099</color>
+              <yaxisside>1</yaxisside>
+              <calc_fnc>2</calc_fnc>
+              <type>0</type>
+              <periods_cnt>5</periods_cnt>
+            </graph_element>
+            <graph_element item="Template_Tomcat6:jmx[Catalina:type=ThreadPool,name=http-8443][currentThreadsBusy]">
+              <drawtype>0</drawtype>
+              <sortorder>0</sortorder>
+              <color>009900</color>
+              <yaxisside>1</yaxisside>
+              <calc_fnc>2</calc_fnc>
+              <type>0</type>
+              <periods_cnt>5</periods_cnt>
+            </graph_element>
+            <graph_element item="Template_Tomcat6:jmx[Catalina:type=ThreadPool,name=http-8443][maxThreads]">
+              <drawtype>0</drawtype>
+              <sortorder>0</sortorder>
+              <color>990000</color>
+              <yaxisside>1</yaxisside>
+              <calc_fnc>2</calc_fnc>
+              <type>0</type>
+              <periods_cnt>5</periods_cnt>
+            </graph_element>
+          </graph_elements>
+        </graph>
+        <graph name="jk-8009 worker threads" width="900" height="200">
+          <ymin_type>0</ymin_type>
+          <ymax_type>0</ymax_type>
+          <ymin_item_key></ymin_item_key>
+          <ymax_item_key></ymax_item_key>
+          <show_work_period>1</show_work_period>
+          <show_triggers>1</show_triggers>
+          <graphtype>0</graphtype>
+          <yaxismin>0.0000</yaxismin>
+          <yaxismax>100.0000</yaxismax>
+          <show_legend>1</show_legend>
+          <show_3d>0</show_3d>
+          <percent_left>0.0000</percent_left>
+          <percent_right>0.0000</percent_right>
+          <graph_elements>
+            <graph_element item="Template_Tomcat6:jmx[&quot;Catalina:type=ThreadPool,name=jk-8009&quot;,&quot;currentThreadsBusy&quot;]">
+              <drawtype>0</drawtype>
+              <sortorder>0</sortorder>
+              <color>009900</color>
+              <yaxisside>1</yaxisside>
+              <calc_fnc>2</calc_fnc>
+              <type>0</type>
+              <periods_cnt>5</periods_cnt>
+            </graph_element>
+            <graph_element item="Template_Tomcat6:jmx[&quot;Catalina:type=ThreadPool,name=jk-8009&quot;,&quot;currentThreadCount&quot;]">
+              <drawtype>0</drawtype>
+              <sortorder>0</sortorder>
+              <color>000099</color>
+              <yaxisside>1</yaxisside>
+              <calc_fnc>2</calc_fnc>
+              <type>0</type>
+              <periods_cnt>5</periods_cnt>
+            </graph_element>
+            <graph_element item="Template_Tomcat6:jmx[&quot;Catalina:type=ThreadPool,name=jk-8009&quot;,&quot;maxThreads&quot;]">
+              <drawtype>0</drawtype>
+              <sortorder>0</sortorder>
+              <color>990000</color>
+              <yaxisside>1</yaxisside>
+              <calc_fnc>2</calc_fnc>
+              <type>0</type>
+              <periods_cnt>5</periods_cnt>
+            </graph_element>
+          </graph_elements>
+        </graph>
+      </graphs>
+      <macros/>
+    </host>
+  </hosts>
+  <dependencies/>
+</zabbix_export>
